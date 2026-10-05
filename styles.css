@@ -384,3 +384,13 @@
   letter-spacing: 1.5px;
   text-transform: uppercase;
 }
+.compound-category {
+  display: inline-block;
+  margin: 4px 0 12px;
+  padding: 5px 8px;
+  border: 1px solid #29494d;
+  color: #9ba9ab;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
