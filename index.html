@@ -46,7 +46,9 @@
     autocomplete="off"
   >
 </div>
- <div class="catalog">
+ <div class="catalog"><p id="noResults" class="no-results">
+  NO COMPOUNDS FOUND IN DATABASE.
+</p>
  <article class="product">
   <div class="photo">
     <img src="cjc-1295.png" alt="CJC-1295">
@@ -110,18 +112,32 @@
 <script>
 const catalogSearch = document.getElementById("catalogSearch");
 const products = document.querySelectorAll(".catalog .product");
+const noResults = document.getElementById("noResults");
 
 catalogSearch.addEventListener("input", function () {
+
   const searchTerm = this.value.trim().toLowerCase();
+  let visibleProducts = 0;
 
   products.forEach(function (product) {
-    const productText = product.textContent.toLowerCase();
 
-    if (productText.includes(searchTerm)) {
+    const productText = product.textContent.toLowerCase();
+    const matches = productText.includes(searchTerm);
+
+    if (matches) {
       product.style.display = "";
+      visibleProducts++;
     } else {
       product.style.display = "none";
     }
+
   });
+
+  if (visibleProducts === 0) {
+    noResults.style.display = "block";
+  } else {
+    noResults.style.display = "none";
+  }
+
 });
 </script></body></html>
