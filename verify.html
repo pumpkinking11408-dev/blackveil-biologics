@@ -400,6 +400,15 @@ document
     }
 
   });
+  
+  const params = new URLSearchParams(window.location.search);
+const lotFromURL = params.get("lot");
+
+if (lotFromURL) {
+  const lotInput = document.getElementById("lotInput");
+  lotInput.value = lotFromURL;
+  verifyLot();
+}
 
 </script>
 
