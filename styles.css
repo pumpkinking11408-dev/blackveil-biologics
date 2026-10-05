@@ -209,3 +209,9 @@
     background-repeat: no-repeat;
   }
 }
+/* Larger product price */
+.product .row strong {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1;
+}
