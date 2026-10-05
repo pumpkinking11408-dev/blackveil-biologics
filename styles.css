@@ -374,3 +374,13 @@
   display: inline-block;
   box-shadow: 0 0 8px rgba(255,31,45,.6);
 }
+.product-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 14px;
+  color: #69777a;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
