@@ -158,19 +158,28 @@ filterButtons.forEach(function(button) {
     this.classList.add("active");
 
     const filter = this.dataset.filter;
+    let visibleProducts = 0;
 
     products.forEach(function(product) {
       const category = product.dataset.category;
 
       if (filter === "all" || category === filter) {
         product.style.display = "";
+        visibleProducts++;
       } else {
         product.style.display = "none";
       }
     });
 
-    noResults.style.display = "none";
     catalogSearch.value = "";
+
+    if (visibleProducts === 0) {
+      noResults.style.display = "block";
+    } else {
+      noResults.style.display = "none";
+    }
   });
 });
-</script></body></html>
+</script>
+</body>
+</html>
