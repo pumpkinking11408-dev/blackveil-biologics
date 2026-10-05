@@ -340,20 +340,19 @@ const lots = {
   }
 
 };
+
 function verifyLot(){
 
-  const input =
-    document.getElementById("lotInput")
+  const input = document
+    .getElementById("lotInput")
     .value
     .trim()
     .toUpperCase()
     .replace(/\s/g,"");
 
-  const result =
-    document.getElementById("result");
-
-  const notFound =
-    document.getElementById("notFound");
+  const result = document.getElementById("result");
+  const notFound = document.getElementById("notFound");
+  const coaButton = document.getElementById("coaButton");
 
   if(lots[input]){
 
@@ -365,40 +364,42 @@ function verifyLot(){
 
     document.getElementById("documentation").textContent =
       lots[input].documentation;
-    const coaButton = document.getElementById("coaButton");
 
-if(lots[input].coa){
-  coaButton.href = lots[input].coa;
-  coaButton.style.display = "block";
-}else{
-  coaButton.removeAttribute("href");
-  coaButton.style.display = "none";
-}
+    if(coaButton){
+      if(lots[input].coa){
+        coaButton.href = lots[input].coa;
+        coaButton.style.display = "block";
+      }else{
+        coaButton.removeAttribute("href");
+        coaButton.style.display = "none";
+      }
+    }
 
-    result.style.display="block";
-    notFound.style.display="none";
+    result.style.display = "block";
+    notFound.style.display = "none";
 
- }else{
+  }else{
 
-  result.style.display="none";
-  notFound.style.display="block";
+    result.style.display = "none";
+    notFound.style.display = "block";
 
-  const coaButton = document.getElementById("coaButton");
-  coaButton.removeAttribute("href");
-  coaButton.style.display="none";
+    if(coaButton){
+      coaButton.removeAttribute("href");
+      coaButton.style.display = "none";
+    }
 
-
+  }
 }
 
 document
-.getElementById("lotInput")
-.addEventListener("keydown",function(event){
+  .getElementById("lotInput")
+  .addEventListener("keydown", function(event){
 
-  if(event.key==="Enter"){
-    verifyLot();
-  }
+    if(event.key === "Enter"){
+      verifyLot();
+    }
 
-});
+  });
 
 </script>
 
