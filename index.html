@@ -55,7 +55,7 @@
  <div class="catalog"><p id="noResults" class="no-results">
   NO COMPOUNDS FOUND IN DATABASE.
 </p>
- <article class="product">
+ <article class="product" data-category="growth">
   <div class="photo">
     <img src="cjc-1295.png" alt="CJC-1295">
   </div>
@@ -70,7 +70,7 @@
     <a href="verify.html?lot=CJC1295-001">VERIFY LOT →</a>
   </div>
 </article>
-  <article class="product">
+  <article class="product" data-category="repair">
   <div class="photo">
     <img src="bpc-157.png" alt="BPC-157">
   </div>
@@ -145,5 +145,32 @@ catalogSearch.addEventListener("input", function () {
     noResults.style.display = "none";
   }
 
+});
+const filterButtons = document.querySelectorAll(".filter-btn");
+
+filterButtons.forEach(function(button) {
+  button.addEventListener("click", function() {
+
+    filterButtons.forEach(function(btn) {
+      btn.classList.remove("active");
+    });
+
+    this.classList.add("active");
+
+    const filter = this.dataset.filter;
+
+    products.forEach(function(product) {
+      const category = product.dataset.category;
+
+      if (filter === "all" || category === filter) {
+        product.style.display = "";
+      } else {
+        product.style.display = "none";
+      }
+    });
+
+    noResults.style.display = "none";
+    catalogSearch.value = "";
+  });
 });
 </script></body></html>
