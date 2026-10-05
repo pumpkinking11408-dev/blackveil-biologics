@@ -418,3 +418,18 @@
   border-color: #ff1f2d;
   color: #050b0c;
 }
+/* FORCE CATALOG FILTERS VISIBLE */
+.catalog-filters {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+  margin: 20px 0 14px !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.catalog-filters .filter-btn {
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
