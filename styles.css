@@ -250,3 +250,32 @@
   background: transparent;
   color: #ff1f2d;
 }
+/* MOBILE HEADER CLEANUP */
+@media (max-width: 700px) {
+
+  header {
+    padding: 14px 18px;
+    min-height: 70px;
+  }
+
+  .brand {
+    gap: 12px;
+  }
+
+  .brand-mark {
+    width: 54px;
+    height: 54px;
+  }
+
+  .brand-name {
+    font-size: 14px;
+    letter-spacing: 4px;
+    white-space: nowrap;
+  }
+
+  .menu-toggle {
+    width: 54px;
+    height: 54px;
+  }
+
+}
