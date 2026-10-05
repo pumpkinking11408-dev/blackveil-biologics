@@ -310,6 +310,10 @@
   </div>
 
 </main>
-
+<script>
+document.querySelectorAll('nav a').forEach(a =>
+  a.onclick = () => document.body.classList.remove('nav-open')
+);
+</script>
 </body>
 </html>
