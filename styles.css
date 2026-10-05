@@ -394,3 +394,27 @@
   letter-spacing: 1.5px;
   text-transform: uppercase;
 }
+.catalog-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 20px 0 14px;
+}
+
+.filter-btn {
+  background: transparent;
+  border: 1px solid #29494d;
+  color: #9ba9ab;
+  padding: 9px 12px;
+  font: inherit;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: #ff1f2d;
+  border-color: #ff1f2d;
+  color: #050b0c;
+}
