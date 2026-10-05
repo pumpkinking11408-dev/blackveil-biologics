@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#02090b">
+<title>Blackveil Biologics</title>
+<meta name="description" content="Research-focused catalog with documentation and lot traceability.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#top"><span class="mark">BV</span><span>BLACKVEIL <i>/</i> BIOLOGICS</span></a>
+  <button class="hamburger" aria-label="Menu" onclick="document.body.classList.toggle('nav-open')">☰</button>
+  <nav>
+    <a href="#catalog">Catalog</a><a href="#quality">Quality</a><a href="#coa">COA</a><a href="#about">About</a><a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="top">
+<section class="hero">
+ <div class="hero-copy">
+   <div class="kicker">RESEARCH • TRANSPARENCY • TRACEABILITY</div>
+   <h1>SCIENCE<br>BEHIND<br><em>THE VEIL.</em></h1>
+   <p>A research-focused catalog built around clear documentation, lot traceability, and accessible analytical records.</p>
+   <div class="actions"><a class="btn red" href="#catalog">EXPLORE CATALOG →</a><a class="btn" href="#coa">VERIFY A LOT</a></div>
+   <div class="hero-meta"><span>LAB / 01</span><span>RESEARCH USE ONLY</span></div>
+ </div>
+</section>
+
+<section class="features">
+ <article><span class="symbol">△</span><div><b>RESEARCH FOCUSED</b><p>Materials presented for laboratory and analytical research.</p></div></article>
+ <article><span class="symbol">▤</span><div><b>LOT TRACEABILITY</b><p>Batch-linked records and documentation.</p></div></article>
+ <article><span class="symbol">◇</span><div><b>ANALYTICAL RECORDS</b><p>Organized lot-specific analytical records.</p></div></article>
+</section>
+
+<section class="section" id="catalog">
+ <div class="label">CATALOG / 02</div>
+ <h2>FEATURED COMPOUNDS</h2>
+ <p class="lead">Research catalog entries with linked documentation and lot-specific records.</p>
+ <div class="catalog">
+  <article class="product"><div class="photo"><div class="vial"><span>BV</span></div></div><div class="product-copy"><div class="row"><h3>Research Compound A</h3><strong>LOT A-001</strong></div><code>REFERENCE STANDARD / DOCUMENTED LOT</code><p>Documentation-ready research catalog entry with linked analytical records.</p><a href="#coa">VIEW DETAILS →</a></div></article>
+  <article class="product"><div class="photo"><div class="vial amber"><span>BV</span></div></div><div class="product-copy"><div class="row"><h3>Research Compound B</h3><strong>LOT B-001</strong></div><code>REFERENCE STANDARD / DOCUMENTED LOT</code><p>Research catalog entry with lot-specific documentation.</p><a href="#coa">VIEW DETAILS →</a></div></article>
+  <article class="product"><div class="photo"><div class="vial"><span>BV</span></div></div><div class="product-copy"><div class="row"><h3>Research Compound C</h3><strong>LOT C-001</strong></div><code>REFERENCE STANDARD / DOCUMENTED LOT</code><p>Technical reference listing intended for laboratory research.</p><a href="#coa">VIEW DETAILS →</a></div></article>
+ </div>
+</section>
+
+<section class="quality" id="quality">
+ <div class="quality-image"></div>
+ <div class="quality-copy"><div class="label">QUALITY / 03</div><h2>DOCUMENTED.<br>TRACEABLE.<br><em>RESEARCH READY.</em></h2><p>Build confidence around genuine records, batch identification, and transparent documentation. Publish analytical or quality claims only when supported by your actual records.</p><a class="btn" href="#coa">VIEW DOCUMENTATION →</a></div>
+</section>
+
+<section class="section verify" id="coa">
+ <div><div class="label">VERIFY A LOT / 04</div><h2>COA &amp; LOT VERIFICATION</h2><p class="lead">Connect genuine lot-specific analytical documentation here.</p></div>
+ <form onsubmit="event.preventDefault();document.querySelector('.result').textContent='No public lot record is connected yet.'">
+   <input aria-label="Lot number" placeholder="Enter lot number (e.g. A-001)" required>
+   <button class="btn red">VERIFY LOT →</button>
+ </form>
+ <p class="result"></p>
+</section>
+
+<section class="section about" id="about">
+ <div class="label">BLACKVEIL / 05</div><h2>BUILT AROUND THE RECORD.</h2>
+ <p class="lead">Blackveil Biologics is presented as a research-focused catalog emphasizing documentation, traceability, and clear labeling.</p>
+</section>
+</main>
+
+<footer id="contact">
+ <div class="brand"><span class="mark">BV</span><span>BLACKVEIL <i>/</i> BIOLOGICS</span></div>
+ <p>For laboratory/research use only. Not for human consumption or therapeutic use.</p>
+ <p>© 2026 Blackveil Biologics</p>
+</footer>
+<script>document.querySelectorAll('nav a').forEach(a=>a.onclick=()=>document.body.classList.remove('nav-open'));</script>
+</body></html>
