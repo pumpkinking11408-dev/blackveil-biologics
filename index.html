@@ -107,4 +107,21 @@
  <p>© 2026 Blackveil Biologics</p>
 </footer>
 <script>document.querySelectorAll('nav a').forEach(a=>a.onclick=()=>document.body.classList.remove('nav-open'));</script>
-</body></html>
+<script>
+const catalogSearch = document.getElementById("catalogSearch");
+const products = document.querySelectorAll(".catalog .product");
+
+catalogSearch.addEventListener("input", function () {
+  const searchTerm = this.value.trim().toLowerCase();
+
+  products.forEach(function (product) {
+    const productText = product.textContent.toLowerCase();
+
+    if (productText.includes(searchTerm)) {
+      product.style.display = "";
+    } else {
+      product.style.display = "none";
+    }
+  });
+});
+</script></body></html>
