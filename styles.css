@@ -164,3 +164,48 @@
     background-repeat: no-repeat;
   }
 }
+/* ===== BLACKVEIL NEW HERO ===== */
+
+.hero {
+  position: relative;
+  min-height: 760px;
+
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(2,9,11,.94) 0%,
+      rgba(2,9,11,.72) 45%,
+      rgba(2,9,11,.35) 100%
+    ),
+    url("Futuristic Biotech Lab Microscope Scene.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 2;
+}
+
+/* IPHONE / MOBILE */
+@media (max-width: 720px) {
+
+  .hero {
+    min-height: 720px;
+
+    background-image:
+      linear-gradient(
+        180deg,
+        rgba(2,9,11,.35) 0%,
+        rgba(2,9,11,.65) 45%,
+        rgba(2,9,11,.96) 100%
+      ),
+      url("Futuristic Biotech Lab Microscope Scene.png");
+
+    background-size: cover;
+    background-position: 65% center;
+    background-repeat: no-repeat;
+  }
+}
