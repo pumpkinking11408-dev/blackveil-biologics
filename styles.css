@@ -233,3 +233,20 @@
   background: #ff1f2d;
   color: #050d0f;
 }
+.verify-product-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 14px 22px;
+  background: #ff1f2d;
+  color: #050d0f;
+  text-decoration: none;
+  font-family: monospace;
+  font-weight: 800;
+  letter-spacing: 2px;
+  border: 1px solid #ff1f2d;
+}
+
+.verify-product-btn:hover {
+  background: transparent;
+  color: #ff1f2d;
+}
