@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#02090b">
+
+<title>Lot Verification | Blackveil Biologics</title>
+
+<style>
+*{
+  box-sizing:border-box;
+}
+
+html{
+  background:#02090b;
+}
+
+body{
+  margin:0;
+  background-color:#02090b;
+  background-image:
+    linear-gradient(rgba(20,60,65,.25) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20,60,65,.25) 1px, transparent 1px);
+  background-size:125px 125px;
+  color:#f4f7f7;
+  font-family:Arial,Helvetica,sans-serif;
+  min-height:100vh;
+}
+
+.topbar{
+  min-height:130px;
+  border-bottom:1px solid #23434a;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:25px 4%;
+  background:#02090b;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:20px;
+  color:#f4f7f7;
+  text-decoration:none;
+  font-family:monospace;
+  letter-spacing:5px;
+  font-size:20px;
+}
+
+.mark{
+  width:82px;
+  height:82px;
+  border:2px solid #ff1f2d;
+  color:#ff1f2d;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:bold;
+  letter-spacing:0;
+}
+
+.slash{
+  color:#ff1f2d;
+}
+
+.wrap{
+  width:min(900px,92%);
+  margin:0 auto;
+  padding:70px 0 100px;
+}
+
+.label{
+  color:#ff1f2d;
+  font-family:monospace;
+  letter-spacing:5px;
+  font-size:17px;
+  margin-bottom:18px;
+}
+
+h1{
+  margin:0 0 20px;
+  font-size:clamp(42px,8vw,78px);
+  line-height:.95;
+}
+
+.intro{
+  color:#a8b6b8;
+  font-size:20px;
+  line-height:1.6;
+  max-width:700px;
+  margin-bottom:45px;
+}
+
+.verify-box{
+  border:1px solid #31545a;
+  padding:35px;
+  background:rgba(2,9,11,.94);
+}
+
+.verify-box label{
+  display:block;
+  color:#8fa1a4;
+  font-family:monospace;
+  letter-spacing:3px;
+  margin-bottom:12px;
+}
+
+input{
+  width:100%;
+  padding:20px;
+  background:#061013;
+  border:1px solid #31545a;
+  color:white;
+  font-size:20px;
+  font-family:monospace;
+  outline:none;
+  text-transform:uppercase;
+}
+
+input:focus{
+  border-color:#ff1f2d;
+}
+
+button{
+  width:100%;
+  margin-top:18px;
+  padding:20px;
+  background:#ff1f2d;
+  border:1px solid #ff1f2d;
+  color:#02090b;
+  font-family:monospace;
+  font-size:18px;
+  font-weight:bold;
+  letter-spacing:4px;
+  cursor:pointer;
+}
+
+.result{
+  display:none;
+  margin-top:30px;
+  border:1px solid #31545a;
+  background:#02090b;
+}
+
+.result-head{
+  padding:22px;
+  border-bottom:1px solid #31545a;
+  color:#ff1f2d;
+  font-family:monospace;
+  letter-spacing:4px;
+  font-weight:bold;
+}
+
+.row{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  padding:18px 22px;
+  border-bottom:1px solid #173239;
+  font-family:monospace;
+}
+
+.row span:first-child{
+  color:#71868b;
+}
+
+.row strong{
+  text-align:right;
+}
+
+.status{
+  color:#52e09b;
+}
+
+.not-found{
+  display:none;
+  margin-top:25px;
+  border-left:4px solid #ff1f2d;
+  padding:20px;
+  background:#061013;
+  color:#a8b6b8;
+  line-height:1.6;
+}
+
+.back{
+  display:inline-block;
+  margin-top:35px;
+  color:#f4f7f7;
+  text-decoration:none;
+  font-family:monospace;
+  letter-spacing:2px;
+}
+
+@media(max-width:720px){
+
+  .topbar{
+    min-height:120px;
+    padding:20px 4%;
+  }
+
+  .brand{
+    gap:12px;
+    font-size:14px;
+    letter-spacing:3px;
+  }
+
+  .mark{
+    width:62px;
+    height:62px;
+  }
+
+  .wrap{
+    padding:45px 0 80px;
+  }
+
+  .verify-box{
+    padding:22px;
+  }
+
+  .row{
+    flex-direction:column;
+    gap:7px;
+  }
+
+  .row strong{
+    text-align:left;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="topbar">
+
+<a class="brand" href="index.html">
+  <span class="mark">BV</span>
+  <span>BLACKVEIL <span class="slash">/</span> BIOLOGICS</span>
+</a>
+
+</header>
+
+<main class="wrap">
+
+<div class="label">DOCUMENTATION / LOT TRACEABILITY</div>
+
+<h1>VERIFY A LOT</h1>
+
+<p class="intro">
+Enter the lot identifier shown on the product documentation to locate
+the corresponding Blackveil Biologics research record.
+</p>
+
+<div class="verify-box">
+
+<label for="lotInput">LOT IDENTIFIER</label>
+
+<input
+  id="lotInput"
+  type="text"
+  placeholder="EX: BPC157-001"
+  autocomplete="off"
+>
+
+<button onclick="verifyLot()">
+VERIFY LOT →
+</button>
+
+<div id="result" class="result">
+
+<div class="result-head">
+LOT RECORD LOCATED
+</div>
+
+<div class="row">
+<span>STATUS</span>
+<strong class="status">RECORD FOUND</strong>
+</div>
+
+<div class="row">
+<span>REFERENCE</span>
+<strong id="reference"></strong>
+</div>
+
+<div class="row">
+<span>LOT</span>
+<strong id="lot"></strong>
+</div>
+
+<div class="row">
+<span>CLASSIFICATION</span>
+<strong>RESEARCH MATERIAL</strong>
+</div>
+
+<div class="row">
+<span>DOCUMENTATION</span>
+<strong id="documentation"></strong>
+</div>
+
+</div>
+
+<div id="notFound" class="not-found">
+<strong>LOT RECORD NOT FOUND</strong><br><br>
+Confirm the lot identifier and try again. A missing record does not
+independently establish product authenticity or analytical status.
+</div>
+
+</div>
+
+<a class="back" href="index.html">← BACK TO CATALOG</a>
+
+</main>
+
+<script>
+
+const lots = {
+
+  "BPC157-001":{
+    reference:"BPC-157",
+    lot:"BPC157-001",
+    documentation:"LOT RECORD AVAILABLE"
+  },
+
+  "CJC1295-001":{
+    reference:"CJC-1295",
+    lot:"CJC1295-001",
+    documentation:"LOT RECORD AVAILABLE"
+  }
+
+};
+
+function verifyLot(){
+
+  const input =
+    document.getElementById("lotInput")
+    .value
+    .trim()
+    .toUpperCase()
+    .replace(/\s/g,"");
+
+  const result =
+    document.getElementById("result");
+
+  const notFound =
+    document.getElementById("notFound");
+
+  if(lots[input]){
+
+    document.getElementById("reference").textContent =
+      lots[input].reference;
+
+    document.getElementById("lot").textContent =
+      lots[input].lot;
+
+    document.getElementById("documentation").textContent =
+      lots[input].documentation;
+
+    result.style.display="block";
+    notFound.style.display="none";
+
+  }else{
+
+    result.style.display="none";
+    notFound.style.display="block";
+
+  }
+
+}
+
+document
+.getElementById("lotInput")
+.addEventListener("keydown",function(event){
+
+  if(event.key==="Enter"){
+    verifyLot();
+  }
+
+});
+
+</script>
+
+</body>
+</html>
