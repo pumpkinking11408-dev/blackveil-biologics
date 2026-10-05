@@ -295,9 +295,17 @@ LOT RECORD LOCATED
 </div>
 
 <div class="row">
-<span>DOCUMENTATION</span>
-<strong id="documentation"></strong>
+  <span>DOCUMENTATION</span>
+  <strong id="documentation"></strong>
 </div>
+
+<a id="coaButton"
+   href="#"
+   target="_blank"
+   rel="noopener"
+   style="display:none;">
+  VIEW COA →
+</a>
 
 </div>
 
@@ -357,16 +365,28 @@ function verifyLot(){
 
     document.getElementById("documentation").textContent =
       lots[input].documentation;
+    const coaButton = document.getElementById("coaButton");
+
+if(lots[input].coa){
+  coaButton.href = lots[input].coa;
+  coaButton.style.display = "block";
+}else{
+  coaButton.removeAttribute("href");
+  coaButton.style.display = "none";
+}
 
     result.style.display="block";
     notFound.style.display="none";
 
-  }else{
+ }else{
 
-    result.style.display="none";
-    notFound.style.display="block";
+  result.style.display="none";
+  notFound.style.display="block";
 
-  }
+  const coaButton = document.getElementById("coaButton");
+  coaButton.removeAttribute("href");
+  coaButton.style.display="none";
+
 
 }
 
