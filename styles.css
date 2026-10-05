@@ -45,3 +45,50 @@
     max-width: 100%;
   }
 }
+/* BLACKVEIL MOBILE PRODUCT CARDS */
+@media (max-width: 720px) {
+
+  .product .photo {
+    min-height: 0;
+    height: 300px;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .product .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  .product-copy {
+    padding: 28px 22px 24px;
+  }
+
+  .product-copy .row {
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .product-copy h3 {
+    font-size: 30px;
+    line-height: 1.05;
+  }
+
+  .product-copy strong {
+    white-space: nowrap;
+  }
+
+  .product-copy code {
+    display: block;
+    margin-top: 18px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+  }
+
+  .product-copy p {
+    line-height: 1.55;
+  }
+}
