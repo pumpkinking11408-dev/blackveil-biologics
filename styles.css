@@ -299,3 +299,46 @@
   color: #a9b8ba;
   line-height: 1.7;
 }
+/* BLACKVEIL CATALOG SEARCH */
+
+.catalog-search {
+  margin: 28px 0 32px;
+  position: relative;
+}
+
+.catalog-search::before {
+  content: "SEARCH / DATABASE";
+  display: block;
+  margin-bottom: 10px;
+  color: #ff1f2d;
+  font-family: monospace;
+  font-size: 12px;
+  letter-spacing: 3px;
+}
+
+.catalog-search input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 18px 20px;
+
+  background: #031012;
+  border: 1px solid #35565b;
+  border-radius: 0;
+
+  color: #f1f4f4;
+  font-family: monospace;
+  font-size: 16px;
+  letter-spacing: 2px;
+
+  outline: none;
+  appearance: none;
+}
+
+.catalog-search input::placeholder {
+  color: #718386;
+}
+
+.catalog-search input:focus {
+  border-color: #ff1f2d;
+  box-shadow: 0 0 0 1px #ff1f2d;
+}
