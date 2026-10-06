@@ -491,3 +491,47 @@ footer#contact a {
 footer#contact a:hover {
   text-decoration: underline;
 }
+/* BLACKVEIL MOBILE NAVIGATION */
+@media (max-width: 768px) {
+
+  .topbar {
+    position: relative;
+  }
+
+  .topbar nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 18px 5%;
+    background: #02090b;
+    border-top: 1px solid #29494d;
+    border-bottom: 1px solid #29494d;
+  }
+
+  .topbar nav.open {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .topbar nav a {
+    display: block;
+    padding: 18px 5px;
+    border-bottom: 1px solid #173034;
+    color: #f1f4f4;
+    font-family: monospace;
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-decoration: none;
+  }
+
+  .topbar nav a:last-child {
+    border-bottom: 0;
+  }
+
+  .topbar nav a:hover {
+    color: #ff1f2d;
+  }
+}
