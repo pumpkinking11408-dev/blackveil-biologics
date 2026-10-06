@@ -548,3 +548,17 @@ footer#contact a:hover {
   letter-spacing: 2px;
   text-transform: uppercase;
 }
+/* BLACKVEIL NEW BADGE */
+.new-badge {
+  display: inline-block;
+  margin-bottom: 8px;
+  padding: 5px 9px;
+  border: 1px solid #ff1f2d;
+  color: #ff1f2d;
+  background: transparent;
+  font-family: monospace;
+  font-size: 9px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
