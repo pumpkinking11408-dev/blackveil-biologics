@@ -582,3 +582,20 @@ footer#contact a:hover {
 .research-notice span {
   color: #8fa1a4;
 }
+/* BLACKVEIL CATALOG SORT */
+.catalog-sort {
+  width: 100%;
+  margin-top: 10px;
+  padding: 13px 14px;
+  background: #031012;
+  border: 1px solid #29494d;
+  color: #f1f4f4;
+  font-family: monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  outline: none;
+}
+
+.catalog-sort:focus {
+  border-color: #ff1f2d;
+}
