@@ -391,6 +391,30 @@ nav.querySelectorAll("a").forEach(function (link) {
     hamburger.classList.remove("open");
   });
 });
+  const catalogSort = document.getElementById("catalogSort");
+const catalog = document.querySelector(".catalog");
+
+catalogSort.addEventListener("change", function () {
+  const products = Array.from(catalog.querySelectorAll(".product"));
+
+  if (this.value === "az") {
+    products.sort((a, b) =>
+      a.querySelector("h3").textContent.localeCompare(
+        b.querySelector("h3").textContent
+      )
+    );
+  }
+
+  if (this.value === "za") {
+    products.sort((a, b) =>
+      b.querySelector("h3").textContent.localeCompare(
+        a.querySelector("h3").textContent
+      )
+    );
+  }
+
+  products.forEach(product => catalog.appendChild(product));
+});
 </script>
 </body>
 </html>
