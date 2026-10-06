@@ -562,3 +562,23 @@ footer#contact a:hover {
   letter-spacing: 2px;
   text-transform: uppercase;
 }
+/* BLACKVEIL RESEARCH NOTICE */
+.research-notice {
+  margin: 20px 5%;
+  padding: 14px 18px;
+  border: 1px solid #29494d;
+  border-left: 3px solid #ff1f2d;
+  background: #031012;
+  font-family: monospace;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.research-notice strong {
+  color: #ff1f2d;
+  margin-right: 10px;
+}
+
+.research-notice span {
+  color: #8fa1a4;
+}
