@@ -396,6 +396,11 @@ const catalog = document.querySelector(".catalog");
 
 catalogSort.addEventListener("change", function () {
   const products = Array.from(catalog.querySelectorAll(".product"));
+  if (this.value === "default") {
+  products.sort((a, b) =>
+    Number(a.dataset.order) - Number(b.dataset.order)
+  );
+}
 
   if (this.value === "az") {
     products.sort((a, b) =>
