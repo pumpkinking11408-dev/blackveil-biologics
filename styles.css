@@ -468,3 +468,26 @@
 .compound-profile .product-meta strong {
   color: #f1f4f4;
 }
+/* BLACKVEIL CONTACT */
+footer#contact {
+  border-top: 1px solid #29494d;
+  padding: 50px 5%;
+  background: #02090b;
+}
+
+footer#contact p {
+  color: #8fa1a4;
+  font-family: monospace;
+  letter-spacing: 1.5px;
+  line-height: 1.7;
+}
+
+footer#contact a {
+  color: #ff1f2d;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer#contact a:hover {
+  text-decoration: underline;
+}
