@@ -39,6 +39,15 @@
         <span>SUBTOTAL</span>
         <strong id="checkoutSubtotal">$0.00</strong>
       </div>
+      <div class="checkout-total">
+  <span>SHIPPING</span>
+  <strong>$10.00</strong>
+</div>
+
+<div class="checkout-total">
+  <span>ORDER TOTAL</span>
+  <strong id="checkoutGrandTotal">$0.00</strong>
+</div>
     </section>
 
     <section class="checkout-panel">
@@ -191,6 +200,11 @@ function loadCheckout() {
   });
 
   checkoutSubtotal.textContent = "$" + subtotal.toFixed(2);
+  const shipping = 10;
+const grandTotal = subtotal + shipping;
+
+document.getElementById("checkoutGrandTotal").textContent =
+  "$" + grandTotal.toFixed(2);
 }
 
 loadCheckout();
@@ -232,7 +246,10 @@ checkoutForm.addEventListener("submit", function(event) {
     </p>
   `;
 
-  reviewTotal.textContent = "$" + total.toFixed(2);
+  const finalShipping = 10;
+const finalTotal = total + finalShipping;
+
+reviewTotal.textContent = "$" + finalTotal.toFixed(2);
 
   sessionStorage.setItem(
     "blackveilCustomer",
