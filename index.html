@@ -512,14 +512,25 @@ document.querySelectorAll(".add-to-cart").forEach(function (button) {
       quantity: 1
     };
 
-    cart.push(item);
-    updateCart();
-    openCart();
+    const existingItem = cart.find(function (cartItem) {
+  return cartItem.lot === item.lot;
+});
+
+if (existingItem) {
+  existingItem.quantity += 1;
+} else {
+  cart.push(item);
+}
+
+updateCart();
+openCart();
   });
 });
 
 function updateCart() {
-  cartCount.textContent = cart.length;
+  cartCount.textContent = cart.reduce(function (total, item) {
+  return total + item.quantity;
+}, 0);
 
   if (cart.length === 0) {
     cartItems.innerHTML =
@@ -543,12 +554,33 @@ function updateCart() {
       <div>
         <strong>${item.name}</strong>
         <small>LOT // ${item.lot}</small>
+
+<div class="quantity-controls">
+  <button type="button" class="qty-minus">−</button>
+  <span>${item.quantity}</span>
+  <button type="button" class="qty-plus">+</button>
+</div>
       </div>
 
       <span>$${item.price.toFixed(2)}</span>
     `;
 
-    cartItems.appendChild(row);
+    cartItems.appendChild(row);row.querySelector(".qty-plus").addEventListener("click", function () {
+  item.quantity += 1;
+  updateCart();
+});
+
+row.querySelector(".qty-minus").addEventListener("click", function () {
+  if (item.quantity > 1) {
+    item.quantity -= 1;
+  } else {
+    cart = cart.filter(function (cartItem) {
+      return cartItem.lot !== item.lot;
+    });
+  }
+
+  updateCart();
+});
   });
 
   cartSubtotal.textContent = "$" + subtotal.toFixed(2);
