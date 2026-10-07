@@ -599,3 +599,32 @@ footer#contact a:hover {
 .catalog-sort:focus {
   border-color: #ff1f2d;
 }
+/* BLACKVEIL BACK TO TOP */
+.back-to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 46px;
+  height: 46px;
+  z-index: 999;
+  border: 1px solid #ff1f2d;
+  background: #031012;
+  color: #ff1f2d;
+  font-size: 22px;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: 0.25s ease;
+}
+
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: #ff1f2d;
+  color: #050b0c;
+}
