@@ -9,48 +9,8 @@
   <link rel="stylesheet" href="styles.css?v=7">
   <link rel="icon" type="image/png" href="blackveil-icon.png">
 </head>
-<script>
-const cart = JSON.parse(localStorage.getItem("blackveilCart")) || [];
 
-const checkoutItems = document.getElementById("checkoutItems");
-const checkoutSubtotal = document.getElementById("checkoutSubtotal");
 
-function loadCheckout() {
-  if (cart.length === 0) {
-    checkoutItems.innerHTML =
-      '<p class="empty-cart">YOUR CART IS EMPTY.</p>';
-
-    checkoutSubtotal.textContent = "$0.00";
-    return;
-  }
-
-  checkoutItems.innerHTML = "";
-
-  let subtotal = 0;
-
-  cart.forEach(function (item) {
-    subtotal += item.price * item.quantity;
-
-    const row = document.createElement("div");
-    row.className = "checkout-item";
-
-    row.innerHTML = `
-      <div>
-        <strong>${item.name}</strong>
-        <small>LOT // ${item.lot} &nbsp; | &nbsp; QTY // ${item.quantity}</small>
-      </div>
-
-      <strong>$${(item.price * item.quantity).toFixed(2)}</strong>
-    `;
-
-    checkoutItems.appendChild(row);
-  });
-
-  checkoutSubtotal.textContent = "$" + subtotal.toFixed(2);
-}
-
-loadCheckout();
-</script>
 <body>
 
 <header class="topbar">
