@@ -516,7 +516,8 @@ backToTop.addEventListener("click", function () {
 const cartDrawer = document.getElementById("cartDrawer");
 const cartOverlay = document.getElementById("cartOverlay");
 const closeCart = document.getElementById("closeCart");
-
+const checkoutButton = document.getElementById("checkoutButton");
+  
 function openCart() {
   cartDrawer.classList.add("open");
   cartOverlay.classList.add("open");
@@ -634,6 +635,13 @@ row.querySelector(".qty-minus").addEventListener("click", function () {
 }
 
   updateCart();
+  checkoutButton.addEventListener("click", function () {
+  if (cart.length === 0) {
+    return;
+  }
+
+  window.location.href = "checkout.html";
+});
   
 </script>
 </body>
