@@ -519,13 +519,6 @@ document.querySelectorAll(".add-to-cart").forEach(function (button) {
 if (existingItem) {
   existingItem.quantity += 1;
 } else {
-  const existingItem = cart.find(function (cartItem) {
-  return cartItem.lot === item.lot;
-});
-
-if (existingItem) {
-  existingItem.quantity += 1;
-} else {
   cart.push(item);
 }
 
