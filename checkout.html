@@ -193,8 +193,11 @@ const cart = JSON.parse(localStorage.getItem("blackveilCart")) || [];
 
 const checkoutItems = document.getElementById("checkoutItems");
 const checkoutSubtotal = document.getElementById("checkoutSubtotal");
+const checkoutForm = document.getElementById("checkoutForm");
 
 function loadCheckout() {
+  checkoutItems.innerHTML = "";
+
   if (cart.length === 0) {
     checkoutItems.innerHTML =
       '<p class="empty-cart">YOUR CART IS EMPTY.</p>';
@@ -203,12 +206,13 @@ function loadCheckout() {
     return;
   }
 
-  checkoutItems.innerHTML = "";
-
   let subtotal = 0;
 
-  cart.forEach(function (item) {
-    subtotal += item.price * item.quantity;
+  cart.forEach(function(item) {
+    const price = Number(item.price) || 0;
+    const quantity = Number(item.quantity) || 1;
+
+    subtotal += price * quantity;
 
     const row = document.createElement("div");
     row.className = "checkout-item";
@@ -216,10 +220,10 @@ function loadCheckout() {
     row.innerHTML = `
       <div>
         <strong>${item.name}</strong>
-        <small>LOT // ${item.lot} | QTY // ${item.quantity}</small>
+        <small>LOT // ${item.lot} | QTY // ${quantity}</small>
       </div>
 
-      <strong>$${(item.price * item.quantity).toFixed(2)}</strong>
+      <strong>$${(price * quantity).toFixed(2)}</strong>
     `;
 
     checkoutItems.appendChild(row);
@@ -229,9 +233,8 @@ function loadCheckout() {
 }
 
 loadCheckout();
-    const checkoutForm = document.getElementById("checkoutForm");
 
-checkoutForm.addEventListener("submit", function (event) {
+checkoutForm.addEventListener("submit", function(event) {
   event.preventDefault();
 
   if (cart.length === 0) {
@@ -248,36 +251,38 @@ checkoutForm.addEventListener("submit", function (event) {
     zip: document.getElementById("customerZip").value.trim()
   };
 
+  const orderReview = document.getElementById("orderReview");
+  const reviewCustomer = document.getElementById("reviewCustomer");
+  const reviewTotal = document.getElementById("reviewTotal");
+
+  let total = 0;
+
+  cart.forEach(function(item) {
+    total += (Number(item.price) || 0) *
+             (Number(item.quantity) || 1);
+  });
+
+  reviewCustomer.innerHTML = `
+    <p><strong>${customer.name}</strong></p>
+    <p>${customer.email}</p>
+    <p>
+      ${customer.address}<br>
+      ${customer.city}, ${customer.state} ${customer.zip}
+    </p>
+  `;
+
+  reviewTotal.textContent = "$" + total.toFixed(2);
+
   sessionStorage.setItem(
     "blackveilCustomer",
     JSON.stringify(customer)
   );
 
-  const orderReview = document.getElementById("orderReview");
-const reviewCustomer = document.getElementById("reviewCustomer");
-const reviewTotal = document.getElementById("reviewTotal");
+  orderReview.style.display = "block";
 
-reviewCustomer.innerHTML = `
-  <p><strong>${customer.name}</strong></p>
-  <p>${customer.email}</p>
-  <p>
-    ${customer.address}<br>
-    ${customer.city}, ${customer.state} ${customer.zip}
-  </p>
-`;
-
-let reviewSubtotal = 0;
-
-cart.forEach(function (item) {
-  reviewSubtotal += item.price * item.quantity;
-});
-
-reviewTotal.textContent = "$" + reviewSubtotal.toFixed(2);
-
-orderReview.style.display = "block";
-orderReview.scrollIntoView({
-  behavior: "smooth"
-});
+  orderReview.scrollIntoView({
+    behavior: "smooth"
+  });
 });
 </script>
 
