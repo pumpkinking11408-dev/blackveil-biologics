@@ -519,6 +519,13 @@ document.querySelectorAll(".add-to-cart").forEach(function (button) {
 if (existingItem) {
   existingItem.quantity += 1;
 } else {
+  const existingItem = cart.find(function (cartItem) {
+  return cartItem.lot === item.lot;
+});
+
+if (existingItem) {
+  existingItem.quantity += 1;
+} else {
   cart.push(item);
 }
 
@@ -560,9 +567,24 @@ function updateCart() {
   <span>${item.quantity}</span>
   <button type="button" class="qty-plus">+</button>
 </div>
+
+<div class="quantity-controls">
+  <button type="button" class="qty-minus">−</button>
+  <span>${item.quantity}</span>
+  <button type="button" class="qty-plus">+</button>
+</div>
       </div>
 
-      <span>$${item.price.toFixed(2)}</span>
+      <div class="cart-item-actions">
+  <span>$${(item.price * item.quantity).toFixed(2)}</span>
+
+  <button
+    type="button"
+    class="remove-cart-item"
+    data-lot="${item.lot}">
+    REMOVE
+  </button>
+</div>
     `;
 
     cartItems.appendChild(row);row.querySelector(".qty-plus").addEventListener("click", function () {
