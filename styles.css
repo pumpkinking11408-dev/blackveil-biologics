@@ -633,3 +633,12 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 90px;
 }
+/* BLACKVEIL DATABASE UPDATE */
+.last-updated {
+  margin-top: 25px;
+  color: #52676a;
+  font-family: monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
