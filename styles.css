@@ -981,3 +981,51 @@ html {
     grid-template-columns: 1fr;
   }
 }
+/* CHECKOUT FORM MOBILE FIX */
+
+.checkout-panel form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.checkout-panel label {
+  display: block;
+  color: #f1f4f4;
+  font-family: monospace;
+  font-size: 12px;
+  letter-spacing: 2px;
+  margin-bottom: 6px;
+}
+
+.checkout-panel input[type="text"],
+.checkout-panel input[type="email"] {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px;
+  background: #031012;
+  border: 1px solid #29494d;
+  color: #f1f4f4;
+  font-size: 16px;
+  border-radius: 0;
+}
+
+.checkout-panel input:focus {
+  outline: none;
+  border-color: #ff1f2d;
+}
+
+.checkout-panel .form-group {
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  .checkout-panel {
+    padding: 24px;
+  }
+
+  .checkout-panel form {
+    gap: 14px;
+  }
+}
