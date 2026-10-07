@@ -775,3 +775,73 @@ html {
   letter-spacing: 1px;
   text-align: center;
 }
+/* BLACKVEIL CART ITEMS */
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 0;
+  border-bottom: 1px solid #183337;
+}
+
+.cart-item strong {
+  display: block;
+  color: #f1f4f4;
+  font-family: monospace;
+  letter-spacing: 1px;
+}
+
+.cart-item small {
+  display: block;
+  margin-top: 6px;
+  color: #718386;
+  font-family: monospace;
+  font-size: 9px;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.quantity-controls button {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #29494d;
+  background: #031012;
+  color: #ff1f2d;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.quantity-controls span {
+  min-width: 20px;
+  color: #f1f4f4;
+  font-family: monospace;
+  text-align: center;
+}
+
+.cart-item-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.cart-item-actions span {
+  color: #f1f4f4;
+  font-family: monospace;
+  font-weight: bold;
+}
+
+.remove-cart-item {
+  border: 0;
+  background: transparent;
+  color: #ff1f2d;
+  font-family: monospace;
+  font-size: 9px;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
