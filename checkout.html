@@ -82,19 +82,92 @@ loadCheckout();
     </section>
 
     <section class="checkout-panel">
-      <div class="label">CUSTOMER INFORMATION</div>
+  <div class="label">CUSTOMER INFORMATION</div>
 
-      <p>
-        Checkout information will be collected here before an order
-        is submitted.
-      </p>
+  <form id="checkoutForm" class="checkout-form">
 
-      <p class="research-notice">
-        RESEARCH USE ONLY // NOT FOR HUMAN CONSUMPTION
-      </p>
-    </section>
+    <label>
+      FULL NAME
+      <input
+        type="text"
+        id="customerName"
+        name="name"
+        autocomplete="name"
+        required>
+    </label>
 
-  </div>
+    <label>
+      EMAIL
+      <input
+        type="email"
+        id="customerEmail"
+        name="email"
+        autocomplete="email"
+        required>
+    </label>
+
+    <label>
+      SHIPPING ADDRESS
+      <input
+        type="text"
+        id="customerAddress"
+        name="address"
+        autocomplete="street-address"
+        required>
+    </label>
+
+    <div class="checkout-form-row">
+
+      <label>
+        CITY
+        <input
+          type="text"
+          id="customerCity"
+          name="city"
+          autocomplete="address-level2"
+          required>
+      </label>
+
+      <label>
+        STATE
+        <input
+          type="text"
+          id="customerState"
+          name="state"
+          autocomplete="address-level1"
+          required>
+      </label>
+
+      <label>
+        ZIP
+        <input
+          type="text"
+          id="customerZip"
+          name="zip"
+          autocomplete="postal-code"
+          required>
+      </label>
+
+    </div>
+
+    <label class="research-confirmation">
+      <input type="checkbox" id="researchAgreement" required>
+      <span>
+        I acknowledge these products are offered for research use only
+        and are not intended for human consumption.
+      </span>
+    </label>
+
+    <button type="submit" class="checkout-button">
+      CONTINUE →
+    </button>
+
+  </form>
+
+  <p class="research-notice">
+    RESEARCH USE ONLY // NOT FOR HUMAN CONSUMPTION
+  </p>
+</section>
 
   <a href="index.html" class="btn">
     ← RETURN TO CATALOG
