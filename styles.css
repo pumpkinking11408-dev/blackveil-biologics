@@ -628,3 +628,8 @@ footer#contact a:hover {
   background: #ff1f2d;
   color: #050b0c;
 }
+/* BLACKVEIL SMOOTH SCROLLING */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
