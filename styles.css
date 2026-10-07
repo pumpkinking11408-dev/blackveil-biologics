@@ -642,3 +642,136 @@ html {
   letter-spacing: 2px;
   text-transform: uppercase;
 }
+/* BLACKVEIL CART */
+.cart-button {
+  background: transparent;
+  border: 1px solid #ff1f2d;
+  color: #ff1f2d;
+  padding: 9px 12px;
+  font-family: monospace;
+  font-weight: bold;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+.cart-button span {
+  margin-left: 6px;
+  color: #f1f4f4;
+}
+
+.cart-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1998;
+  background: rgba(0, 0, 0, 0.72);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s ease;
+}
+
+.cart-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.cart-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1999;
+  width: min(420px, 92vw);
+  height: 100vh;
+  padding: 24px;
+  background: #02090b;
+  border-left: 1px solid #29494d;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  overflow-y: auto;
+}
+
+.cart-drawer.open {
+  transform: translateX(0);
+}
+
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #29494d;
+}
+
+.cart-header span {
+  color: #ff1f2d;
+  font-family: monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+.cart-header h2 {
+  margin: 6px 0 0;
+  color: #f1f4f4;
+}
+
+.cart-close {
+  border: 0;
+  background: transparent;
+  color: #ff1f2d;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.cart-items {
+  min-height: 250px;
+  padding: 25px 0;
+}
+
+.empty-cart {
+  color: #718386;
+  font-family: monospace;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.cart-footer {
+  padding-top: 20px;
+  border-top: 1px solid #29494d;
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  font-family: monospace;
+}
+
+.cart-total span {
+  color: #718386;
+}
+
+.cart-total strong {
+  color: #f1f4f4;
+  font-size: 18px;
+}
+
+.checkout-button {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #ff1f2d;
+  background: #ff1f2d;
+  color: #050b0c;
+  font-family: monospace;
+  font-weight: bold;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+.cart-footer small {
+  display: block;
+  margin-top: 14px;
+  color: #52676a;
+  font-family: monospace;
+  font-size: 8px;
+  letter-spacing: 1px;
+  text-align: center;
+}
