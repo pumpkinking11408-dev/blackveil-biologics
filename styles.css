@@ -915,3 +915,69 @@ html {
   letter-spacing: 1px;
   cursor: pointer;
 }
+/* BLACKVEIL CHECKOUT */
+.checkout-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 24px;
+  margin: 30px 0;
+}
+
+.checkout-panel {
+  padding: 24px;
+  background: #031012;
+  border: 1px solid #29494d;
+}
+
+.checkout-panel .label {
+  margin-bottom: 22px;
+  color: #ff1f2d;
+  font-family: monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+}
+
+.checkout-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 16px 0;
+  border-bottom: 1px solid #183337;
+}
+
+.checkout-item strong {
+  color: #f1f4f4;
+  font-family: monospace;
+}
+
+.checkout-item small {
+  display: block;
+  margin-top: 6px;
+  color: #718386;
+  font-family: monospace;
+  font-size: 9px;
+}
+
+.checkout-total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid #29494d;
+  font-family: monospace;
+}
+
+.checkout-total span {
+  color: #718386;
+}
+
+.checkout-total strong {
+  color: #ff1f2d;
+  font-size: 20px;
+}
+
+@media (max-width: 768px) {
+  .checkout-grid {
+    grid-template-columns: 1fr;
+  }
+}
