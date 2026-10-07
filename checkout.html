@@ -157,9 +157,8 @@
     <button
   type="button"
   class="checkout-button"
-  id="placeOrderButton"
-  disabled>
-  PLACE ORDER →
+  id="placeOrderButton">
+  REQUEST ORDER BY EMAIL →
 </button>
 
 <p class="research-notice">
@@ -278,6 +277,60 @@ reviewTotal.textContent = "$" + finalTotal.toFixed(2);
     behavior: "smooth"
   });
 });
+    document.getElementById("placeOrderButton")
+  .addEventListener("click", function () {
+
+    const customer = JSON.parse(
+      sessionStorage.getItem("blackveilCustomer") || "null"
+    );
+
+    if (!customer || cart.length === 0) {
+      alert("PLEASE COMPLETE YOUR ORDER REVIEW FIRST.");
+      return;
+    }
+
+    let subtotal = 0;
+
+    const items = cart.map(function (item) {
+      const price = Number(item.price);
+      const quantity = Number(item.quantity);
+
+      subtotal += price * quantity;
+
+      return `${item.name}
+LOT: ${item.lot}
+QUANTITY: ${quantity}
+PRICE: $${(price * quantity).toFixed(2)}`;
+    }).join("\n\n");
+
+    const message = `BLACKVEIL BIOLOGICS
+NEW ORDER REQUEST
+
+CUSTOMER:
+${customer.name}
+${customer.email}
+
+SHIPPING:
+${customer.address}
+${customer.city}, ${customer.state} ${customer.zip}
+
+PRODUCTS:
+${items}
+
+SUBTOTAL: $${subtotal.toFixed(2)}
+SHIPPING: $10.00
+TOTAL: $${(subtotal + 10).toFixed(2)}
+
+ORDER STATUS: REQUEST PENDING REVIEW`;
+
+    const subject = "Blackveil Biologics - New Order Request";
+
+    window.location.href =
+      "mailto:blackveilbio@gmail.com?subject=" +
+      encodeURIComponent(subject) +
+      "&body=" +
+      encodeURIComponent(message);
+  });
 </script>
 
 </body>
