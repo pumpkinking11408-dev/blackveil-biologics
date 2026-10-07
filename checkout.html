@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Checkout | Blackveil Biologics</title>
+
+  <link rel="stylesheet" href="styles.css?v=7">
+  <link rel="icon" type="image/png" href="blackveil-icon.png">
+</head>
+<script>
+const cart = JSON.parse(localStorage.getItem("blackveilCart")) || [];
+
+const checkoutItems = document.getElementById("checkoutItems");
+const checkoutSubtotal = document.getElementById("checkoutSubtotal");
+
+function loadCheckout() {
+  if (cart.length === 0) {
+    checkoutItems.innerHTML =
+      '<p class="empty-cart">YOUR CART IS EMPTY.</p>';
+
+    checkoutSubtotal.textContent = "$0.00";
+    return;
+  }
+
+  checkoutItems.innerHTML = "";
+
+  let subtotal = 0;
+
+  cart.forEach(function (item) {
+    subtotal += item.price * item.quantity;
+
+    const row = document.createElement("div");
+    row.className = "checkout-item";
+
+    row.innerHTML = `
+      <div>
+        <strong>${item.name}</strong>
+        <small>LOT // ${item.lot} &nbsp; | &nbsp; QTY // ${item.quantity}</small>
+      </div>
+
+      <strong>$${(item.price * item.quantity).toFixed(2)}</strong>
+    `;
+
+    checkoutItems.appendChild(row);
+  });
+
+  checkoutSubtotal.textContent = "$" + subtotal.toFixed(2);
+}
+
+loadCheckout();
+</script>
+<body>
+
+<header class="topbar">
+  <a href="index.html" class="brand">
+    BLACKVEIL <span>BIOLOGICS</span>
+  </a>
+</header>
+
+<main class="section">
+
+  <div class="section-head">
+    <span>BLACKVEIL // ORDER SYSTEM</span>
+    <h1>CHECKOUT</h1>
+  </div>
+
+  <div class="checkout-grid">
+
+    <section class="checkout-panel">
+      <div class="label">ORDER SUMMARY</div>
+
+      <div id="checkoutItems">
+        <p class="empty-cart">LOADING CART...</p>
+      </div>
+
+      <div class="checkout-total">
+        <span>SUBTOTAL</span>
+        <strong id="checkoutSubtotal">$0.00</strong>
+      </div>
+    </section>
+
+    <section class="checkout-panel">
+      <div class="label">CUSTOMER INFORMATION</div>
+
+      <p>
+        Checkout information will be collected here before an order
+        is submitted.
+      </p>
+
+      <p class="research-notice">
+        RESEARCH USE ONLY // NOT FOR HUMAN CONSUMPTION
+      </p>
+    </section>
+
+  </div>
+
+  <a href="index.html" class="btn">
+    ← RETURN TO CATALOG
+  </a>
+
+</main>
+
+</body>
+</html>
