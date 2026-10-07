@@ -47,11 +47,46 @@
 </head>
 <button id="backToTop" class="back-to-top" aria-label="Back to top">
   ↑
-</button><body>
+</button><div class="cart-overlay" id="cartOverlay"></div>
+
+<aside class="cart-drawer" id="cartDrawer">
+  <div class="cart-header">
+    <div>
+      <span>BLACKVEIL // ORDER SYSTEM</span>
+      <h2>YOUR CART</h2>
+    </div>
+
+    <button type="button" id="closeCart" class="cart-close">
+      ×
+    </button>
+  </div>
+
+  <div id="cartItems" class="cart-items">
+    <p class="empty-cart">YOUR CART IS EMPTY.</p>
+  </div>
+
+  <div class="cart-footer">
+    <div class="cart-total">
+      <span>SUBTOTAL</span>
+      <strong id="cartSubtotal">$0.00</strong>
+    </div>
+
+    <button type="button" class="checkout-button" id="checkoutButton">
+      PROCEED TO CHECKOUT →
+    </button>
+
+    <small>
+      RESEARCH USE ONLY // NOT FOR HUMAN CONSUMPTION
+    </small>
+  </div>
+</aside><body>
 <header class="topbar">
   <a class="brand" href="#top"><span class="mark">BV</span><span>BLACKVEIL <i>/</i> BIOLOGICS</span></a>
   <button class="hamburger" aria-label="Menu" onclick="document.body.classList.toggle('nav-open')">☰</button>
-  <nav>
+  <nav><button class="cart-button" id="cartButton" type="button">
+  CART
+  <span id="cartCount">0</span>
+</button>
   <a href="#top">HOME</a>
   <a href="#catalog">CATALOG</a>
   <a href="verify.html">VERIFY LOT</a>
