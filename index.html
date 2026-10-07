@@ -470,6 +470,26 @@ backToTop.addEventListener("click", function () {
     behavior: "smooth"
   });
 });
+  const cartButton = document.getElementById("cartButton");
+const cartDrawer = document.getElementById("cartDrawer");
+const cartOverlay = document.getElementById("cartOverlay");
+const closeCart = document.getElementById("closeCart");
+
+function openCart() {
+  cartDrawer.classList.add("open");
+  cartOverlay.classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+
+function hideCart() {
+  cartDrawer.classList.remove("open");
+  cartOverlay.classList.remove("open");
+  document.body.style.overflow = "";
+}
+
+cartButton.addEventListener("click", openCart);
+closeCart.addEventListener("click", hideCart);
+cartOverlay.addEventListener("click", hideCart);
 </script>
 </body>
 </html>
