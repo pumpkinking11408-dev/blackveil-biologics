@@ -168,7 +168,21 @@ loadCheckout();
     RESEARCH USE ONLY // NOT FOR HUMAN CONSUMPTION
   </p>
 </section>
+<section class="checkout-panel" id="orderReview" style="display:none;">
+  <div class="label">FINAL ORDER REVIEW</div>
 
+  <div id="reviewCustomer"></div>
+
+  <div class="checkout-total">
+    <span>ORDER TOTAL</span>
+    <strong id="reviewTotal">$0.00</strong>
+  </div>
+
+  <p class="research-notice">
+    VERIFY YOUR INFORMATION BEFORE CONTINUING.
+  </p>
+</section>
+    
   <a href="index.html" class="btn">
     ← RETURN TO CATALOG
   </a>
@@ -214,7 +228,8 @@ function loadCheckout() {
   checkoutSubtotal.textContent = "$" + subtotal.toFixed(2);
 }
 
-loadCheckout();const checkoutForm = document.getElementById("checkoutForm");
+loadCheckout();
+    const checkoutForm = document.getElementById("checkoutForm");
 
 checkoutForm.addEventListener("submit", function (event) {
   event.preventDefault();
@@ -238,7 +253,31 @@ checkoutForm.addEventListener("submit", function (event) {
     JSON.stringify(customer)
   );
 
-  alert("INFORMATION VERIFIED // READY FOR ORDER REVIEW");
+  const orderReview = document.getElementById("orderReview");
+const reviewCustomer = document.getElementById("reviewCustomer");
+const reviewTotal = document.getElementById("reviewTotal");
+
+reviewCustomer.innerHTML = `
+  <p><strong>${customer.name}</strong></p>
+  <p>${customer.email}</p>
+  <p>
+    ${customer.address}<br>
+    ${customer.city}, ${customer.state} ${customer.zip}
+  </p>
+`;
+
+let reviewSubtotal = 0;
+
+cart.forEach(function (item) {
+  reviewSubtotal += item.price * item.quantity;
+});
+
+reviewTotal.textContent = "$" + reviewSubtotal.toFixed(2);
+
+orderReview.style.display = "block";
+orderReview.scrollIntoView({
+  behavior: "smooth"
+});
 });
 </script>
 
