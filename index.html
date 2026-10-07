@@ -497,6 +497,62 @@ function hideCart() {
 cartButton.addEventListener("click", openCart);
 closeCart.addEventListener("click", hideCart);
 cartOverlay.addEventListener("click", hideCart);
+  let cart = [];
+
+const cartCount = document.getElementById("cartCount");
+const cartItems = document.getElementById("cartItems");
+const cartSubtotal = document.getElementById("cartSubtotal");
+
+document.querySelectorAll(".add-to-cart").forEach(function (button) {
+  button.addEventListener("click", function () {
+    const item = {
+      name: this.dataset.name,
+      lot: this.dataset.lot,
+      price: Number(this.dataset.price),
+      quantity: 1
+    };
+
+    cart.push(item);
+    updateCart();
+    openCart();
+  });
+});
+
+function updateCart() {
+  cartCount.textContent = cart.length;
+
+  if (cart.length === 0) {
+    cartItems.innerHTML =
+      '<p class="empty-cart">YOUR CART IS EMPTY.</p>';
+
+    cartSubtotal.textContent = "$0.00";
+    return;
+  }
+
+  cartItems.innerHTML = "";
+
+  let subtotal = 0;
+
+  cart.forEach(function (item) {
+    subtotal += item.price * item.quantity;
+
+    const row = document.createElement("div");
+    row.className = "cart-item";
+
+    row.innerHTML = `
+      <div>
+        <strong>${item.name}</strong>
+        <small>LOT // ${item.lot}</small>
+      </div>
+
+      <span>$${item.price.toFixed(2)}</span>
+    `;
+
+    cartItems.appendChild(row);
+  });
+
+  cartSubtotal.textContent = "$" + subtotal.toFixed(2);
+}
 </script>
 </body>
 </html>
