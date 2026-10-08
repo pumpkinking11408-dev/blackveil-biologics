@@ -592,6 +592,16 @@ document.getElementById("emptyCartButton")
     }
   });
 function updateCart() {
+  
+const checkoutBtn = document.getElementById("checkoutButton");
+
+if (checkoutBtn) {
+  checkoutBtn.disabled = cart.length === 0;
+  checkoutBtn.style.opacity = cart.length === 0 ? "0.4" : "1";
+  checkoutBtn.style.cursor = cart.length === 0
+    ? "not-allowed"
+    : "pointer";
+}
   localStorage.setItem("blackveilCart", JSON.stringify(cart));
   cartCount.textContent = cart.reduce(function (total, item) {
   return total + item.quantity;
