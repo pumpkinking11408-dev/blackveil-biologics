@@ -628,7 +628,11 @@ reviewTotal.textContent = "$" + finalTotal.toFixed(2);
     document.getElementById("placeOrderButton")
   .addEventListener("click", function () {
     
-    const orderNumber = generateOrderNumber();
+    const orderNumber =
+  sessionStorage.getItem("blackveilCurrentOrder") ||
+  generateOrderNumber();
+
+sessionStorage.setItem("blackveilCurrentOrder", orderNumber);
 
     const customer = JSON.parse(
       sessionStorage.getItem("blackveilCustomer") || "null"
