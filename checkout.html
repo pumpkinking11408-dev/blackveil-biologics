@@ -681,7 +681,15 @@ ORDER STATUS: REQUEST PENDING REVIEW
 ORDER REFERENCE: ${orderNumber}`;
 
     const subject = "BLACKVEIL ORDER REQUEST // " + orderNumber;
+    
 
+alert(
+  "BLACKVEIL BIOLOGICS\n\n" +
+  "ORDER REQUEST — EMAIL READY\n\n" +
+  "Your email app will open with your order details.\n\n" +
+  "Please SEND the email to submit your request.\n\n" +
+  "Your order is not confirmed until reviewed."
+);
     window.location.href =
       "mailto:blackveilbio@gmail.com?subject=" +
       encodeURIComponent(subject) +
