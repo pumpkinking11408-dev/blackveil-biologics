@@ -569,26 +569,14 @@ localStorage.setItem("blackveilOrderNumber", orderNumber);
 
 const paymentReference = document.getElementById("paymentOrderNumber");
 
+
 if (paymentReference) {
   paymentReference.textContent = orderNumber;
-  
+}
+
 const paymentSection = document.getElementById("paymentAfterOrder");
-
-if (paymentSection) paymentSection.hidden = true;
-}
-}
-localStorage.setItem("blackveilOrderNumber", orderNumber);
-  
-const paymentOrderNumber = document.getElementById("paymentOrderNumber");
-
-if (paymentOrderNumber) {
-  paymentOrderNumber.textContent = orderNumber;
-}
-  
-const paymentSection = document.getElementById("paymentAfterOrder");
-
 if (paymentSection) {
-  paymentSection.hidden = false;
+  paymentSection.hidden = true;
 }
 
   if (cart.length === 0) {
