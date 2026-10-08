@@ -539,6 +539,9 @@ loadCheckout();
 
 checkoutForm.addEventListener("submit", function(event) {
   event.preventDefault();
+  
+const orderNumber = generateOrderNumber();
+localStorage.setItem("blackveilOrderNumber", orderNumber);
 
   if (cart.length === 0) {
     alert("YOUR CART IS EMPTY.");
