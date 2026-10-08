@@ -414,6 +414,12 @@
   <span>TOTAL PAYMENT AMOUNT</span>
   <strong id="paymentAmount">$0.00</strong>
 </div>
+        
+<div class="order-reference-box">
+  <p>BLACKVEIL // PAYMENT REFERENCE</p>
+  <strong id="paymentOrderNumber">PENDING ORDER REQUEST</strong>
+  <small>Use this reference in your Venmo or Cash App payment note.</small>
+</div>
         <div class="payment-links">
   <a href="https://venmo.com/u/Robert-Ridgeway-30"
      target="_blank"
@@ -542,6 +548,18 @@ checkoutForm.addEventListener("submit", function(event) {
   
 const orderNumber = generateOrderNumber();
 localStorage.setItem("blackveilOrderNumber", orderNumber);
+  
+const paymentOrderNumber = document.getElementById("paymentOrderNumber");
+
+if (paymentOrderNumber) {
+  paymentOrderNumber.textContent = orderNumber;
+}
+  
+const paymentSection = document.getElementById("paymentAfterOrder");
+
+if (paymentSection) {
+  paymentSection.hidden = false;
+}
 
   if (cart.length === 0) {
     alert("YOUR CART IS EMPTY.");
