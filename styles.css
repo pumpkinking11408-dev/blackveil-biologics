@@ -1077,3 +1077,38 @@ html {
     grid-template-columns: 1fr;
   }
 }
+
+.order-status-tracker {
+  background: #080d0a;
+  border: 1px solid #2aff72;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 25px 0;
+  color: #d9e5dc;
+}
+
+.order-status-tracker h3 {
+  color: #2aff72;
+  font-size: 15px;
+  letter-spacing: 2px;
+  margin-bottom: 18px;
+}
+
+.order-status-tracker p {
+  padding: 10px 0;
+  border-bottom: 1px solid #26352b;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.order-status-tracker p:first-of-type {
+  color: #2aff72;
+  font-weight: bold;
+}
+
+.order-status-tracker small {
+  display: block;
+  margin-top: 15px;
+  color: #9aaba0;
+  line-height: 1.6;
+}
