@@ -104,6 +104,49 @@
     grid-template-columns: repeat(3, 1fr);
   }
 }
+    /* BLACKVEIL PAYMENT INSTRUCTIONS */
+
+.payment-instructions {
+  margin: 24px 0;
+  padding: 24px;
+  background: linear-gradient(145deg, #061209, #020603);
+  border: 1px solid #315b38;
+  border-left: 4px solid #62ff75;
+  border-radius: 8px;
+}
+
+.payment-instructions .label {
+  color: #62ff75;
+  font-family: monospace;
+  letter-spacing: 3px;
+  margin-bottom: 22px;
+}
+
+.payment-instructions h3 {
+  color: #f1f4f4;
+  font-size: 19px;
+}
+
+.payment-instructions p {
+  color: #a7b8aa;
+  line-height: 1.7;
+}
+
+.payment-status {
+  padding: 16px;
+  margin: 20px 0;
+  border: 1px solid #315b38;
+  color: #62ff75;
+  font-family: monospace;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.payment-instructions small {
+  display: block;
+  color: #82988a;
+  line-height: 1.7;
+}
 </style>
 </head>
 
@@ -177,6 +220,30 @@
     </label>
 
   </div>
+</div>
+      <div class="payment-instructions">
+  <div class="label">02 // PAYMENT INSTRUCTIONS</div>
+
+  <h3>AWAITING PAYMENT AUTHORIZATION</h3>
+
+  <p>
+    BLACKVEIL BIOLOGICS // SECURE ORDER REQUEST
+  </p>
+
+  <div class="payment-status">
+    <span class="status-dot"></span>
+    PAYMENT METHODS PENDING ACTIVATION
+  </div>
+
+  <p>
+    Complete your customer information below
+    to submit an order request for review.
+  </p>
+
+  <small>
+    NO PAYMENT IS COLLECTED AT THIS STAGE.
+    ORDER REQUESTS ARE NOT CONFIRMED PURCHASES.
+  </small>
 </div>
   <form id="checkoutForm" class="checkout-form">
 
