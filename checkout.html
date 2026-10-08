@@ -623,33 +623,9 @@ checkoutForm.addEventListener("submit", function(event) {
   
 sessionStorage.removeItem("blackveilCurrentOrder");
   
-if (sessionStorage.getItem("blackveilEmailOpened") === "yes") {
-  const retry = confirm(
-    "ORDER EMAIL ALREADY PREPARED\n\n" +
-    "You previously opened an email draft for this order.\n\n" +
-    "Please check whether you already sent it.\n\n" +
-    "Open the email draft again?"
-  );
 
-  if (!retry) return;
-}
-
-sessionStorage.setItem("blackveilEmailOpened", "yes");
-const orderNumber = generateOrderNumber();
   
-localStorage.setItem("blackveilOrderNumber", orderNumber);
 
-const paymentReference = document.getElementById("paymentOrderNumber");
-
-
-if (paymentReference) {
-  paymentReference.textContent = orderNumber;
-}
-
-const paymentSection = document.getElementById("paymentAfterOrder");
-if (paymentSection) {
-  paymentSection.hidden = true;
-}
 
   if (cart.length === 0) {
     alert("YOUR CART IS EMPTY.");
