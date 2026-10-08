@@ -716,22 +716,7 @@ function generateOrderNumber() {
   const number = crypto.getRandomValues(new Uint32Array(1))[0] % 900000 + 100000;
   return "BV-" + number;
 }
-  const date = new Date();
-  const dateCode =
-    date.getFullYear().toString() +
-    String(date.getMonth() + 1).padStart(2, "0") +
-    String(date.getDate()).padStart(2, "0");
-
-  const randomBytes = new Uint8Array(4);
-  crypto.getRandomValues(randomBytes);
-
-  const randomCode = Array.from(randomBytes)
-    .map(byte => byte.toString(16).padStart(2, "0"))
-    .join("")
-    .toUpperCase();
-
-  return "BV-" + dateCode + "-" + randomCode;
-}
+  
 </script>
 
 </body>
