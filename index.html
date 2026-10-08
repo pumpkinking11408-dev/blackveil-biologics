@@ -550,6 +550,10 @@ function hideCart() {
 }
 
 cartButton.addEventListener("click", openCart);
+  
+if (window.location.hash === "#cart") {
+  openCart();
+}
 closeCart.addEventListener("click", hideCart);
 cartOverlay.addEventListener("click", hideCart);
   let cart = JSON.parse(localStorage.getItem("blackveilCart")) || [];
