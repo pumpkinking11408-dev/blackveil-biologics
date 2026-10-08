@@ -208,6 +208,44 @@
     padding: 18px;
   }
 }
+    /* BLACKVEIL PAYMENT LINKS */
+
+.payment-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.payment-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  padding: 12px;
+  background: #07120a;
+  border: 1px solid #62ff75;
+  border-radius: 6px;
+  color: #62ff75;
+  font-family: monospace;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-align: center;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+.payment-links a:hover {
+  background: #62ff75;
+  color: #020703;
+}
+
+@media (max-width: 480px) {
+  .payment-links {
+    grid-template-columns: 1fr;
+  }
+}
 </style>
 </head>
 
