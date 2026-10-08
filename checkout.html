@@ -546,6 +546,8 @@ loadCheckout();
 checkoutForm.addEventListener("submit", function(event) {
   event.preventDefault();
   
+sessionStorage.removeItem("blackveilCurrentOrder");
+  
 const orderNumber = generateOrderNumber();
   
 localStorage.setItem("blackveilOrderNumber", orderNumber);
