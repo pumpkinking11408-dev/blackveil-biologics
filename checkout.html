@@ -613,6 +613,8 @@ reviewTotal.textContent = "$" + finalTotal.toFixed(2);
 });
     document.getElementById("placeOrderButton")
   .addEventListener("click", function () {
+    
+    const orderNumber = generateOrderNumber();
 
     const customer = JSON.parse(
       sessionStorage.getItem("blackveilCustomer") || "null"
