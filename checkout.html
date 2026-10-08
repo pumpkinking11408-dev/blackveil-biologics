@@ -574,8 +574,7 @@ if (paymentReference) {
   
 const paymentSection = document.getElementById("paymentAfterOrder");
 
-if (paymentSection) {
-  paymentSection.hidden = false;
+if (paymentSection) paymentSection.hidden = true;
 }
 }
 localStorage.setItem("blackveilOrderNumber", orderNumber);
