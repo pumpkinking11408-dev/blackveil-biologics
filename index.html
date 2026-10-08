@@ -582,6 +582,15 @@ openCart();
   });
 });
 
+document.getElementById("emptyCartButton")
+  .addEventListener("click", function () {
+    if (cart.length === 0) return;
+
+    if (confirm("EMPTY YOUR ENTIRE CART?")) {
+      cart = [];
+      updateCart();
+    }
+  });
 function updateCart() {
   localStorage.setItem("blackveilCart", JSON.stringify(cart));
   cartCount.textContent = cart.reduce(function (total, item) {
