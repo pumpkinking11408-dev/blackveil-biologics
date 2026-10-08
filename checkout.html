@@ -50,6 +50,60 @@
 .checkout-form input:focus {
   outline: 1px solid #62ff75;
 }
+    /* BLACKVEIL PAYMENT SELECTOR */
+
+.payment-selector {
+  margin: 25px 0;
+  padding: 22px;
+  background: #030a06;
+  border: 1px solid #315b38;
+}
+
+.payment-selector .label {
+  color: #62ff75;
+  font-family: monospace;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+}
+
+.payment-options {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.payment-option {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  background: #07120a;
+  border: 1px solid #315b38;
+  border-radius: 8px;
+  color: #f1f4f4;
+  font-family: monospace;
+  letter-spacing: 1px;
+}
+
+.payment-option span {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.payment-option small {
+  color: #82988a;
+  font-size: 10px;
+}
+
+.payment-option input {
+  accent-color: #62ff75;
+}
+
+@media (min-width: 700px) {
+  .payment-options {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 </style>
 </head>
 
