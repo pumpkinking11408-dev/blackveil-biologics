@@ -502,6 +502,24 @@
   REQUEST ORDER BY EMAIL →
 </button>
     
+<button
+  id="clearCompletedOrder"
+  type="button"
+  style="
+    display:block;
+    width:100%;
+    margin-top:15px;
+    padding:14px;
+    background:transparent;
+    color:#2aff72;
+    border:1px solid #2aff72;
+    border-radius:5px;
+    font-weight:bold;
+    cursor:pointer;
+  ">
+  CLEAR COMPLETED REQUEST
+</button>
+    
 <p style="text-align:center; margin-top:15px;">
   <a href="order-request.html"
      style="color:#2aff72; font-size:13px;">
@@ -753,6 +771,22 @@ function generateOrderNumber() {
   return "BV-" + number;
 }
   
+document.getElementById("clearCompletedOrder")
+  .addEventListener("click", function () {
+    const confirmed = confirm(
+      "Have you sent your order request email?\n\n" +
+      "This will permanently clear your shopping cart."
+    );
+
+    if (!confirmed) return;
+
+    localStorage.removeItem("blackveilCart");
+    localStorage.removeItem("blackveilOrderNumber");
+    sessionStorage.removeItem("blackveilCurrentOrder");
+    sessionStorage.removeItem("blackveilCustomer");
+
+    window.location.href = "index.html";
+  });
 </script>
 
 </body>
