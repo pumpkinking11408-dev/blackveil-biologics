@@ -650,6 +650,34 @@ ORDER STATUS: REQUEST PENDING REVIEW`;
       "&body=" +
       encodeURIComponent(message);
   });
+    
+const paymentOptions = document.querySelectorAll(
+  'input[name="paymentMethod"]'
+);
+
+const paymentInstructions = document.querySelector(
+  ".payment-instructions"
+);
+
+paymentOptions.forEach(function(option) {
+  option.addEventListener("change", function() {
+    if (this.value === "venmo") {
+      paymentInstructions.querySelector("h3").textContent =
+        "VENMO // MANUAL PAYMENT";
+
+      paymentInstructions.querySelector(".payment-status").innerHTML =
+        "SELECTED // VENMO @Robert-Ridgeway-30";
+    }
+
+    if (this.value === "cashapp") {
+      paymentInstructions.querySelector("h3").textContent =
+        "CASH APP // MANUAL PAYMENT";
+
+      paymentInstructions.querySelector(".payment-status").innerHTML =
+        "SELECTED // CASH APP $Robert11408";
+    }
+  });
+});
 </script>
 
 </body>
