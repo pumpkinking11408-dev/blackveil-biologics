@@ -803,6 +803,15 @@ document.getElementById("clearCompletedOrder")
 
     if (!confirmed) return;
 
+const completedOrderReference =
+  localStorage.getItem("blackveilOrderNumber");
+
+if (completedOrderReference) {
+  sessionStorage.setItem(
+    "blackveilCompletedOrderReference",
+    completedOrderReference
+  );
+}
     localStorage.removeItem("blackveilCart");
     localStorage.removeItem("blackveilOrderNumber");
     sessionStorage.removeItem("blackveilCurrentOrder");
