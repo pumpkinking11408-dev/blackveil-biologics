@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1">
+
+<title>Order Request | Blackveil Biologics</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #080d0a;
+  color: #e5eee8;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  padding: 25px 15px;
+  text-align: center;
+  border-bottom: 1px solid #24432d;
+}
+
+.brand {
+  color: #2aff72;
+  font-weight: bold;
+  letter-spacing: 3px;
+  font-size: 19px;
+}
+
+main {
+  max-width: 520px;
+  margin: 50px auto;
+  padding: 20px;
+}
+
+.card {
+  background: #101813;
+  border: 1px solid #2aff72;
+  border-radius: 12px;
+  padding: 30px 22px;
+  text-align: center;
+}
+
+.symbol {
+  font-size: 44px;
+  color: #2aff72;
+}
+
+h1 {
+  color: #2aff72;
+  font-size: 25px;
+}
+
+p {
+  line-height: 1.7;
+  color: #c5d1c8;
+}
+
+.reference {
+  padding: 16px;
+  margin: 22px 0;
+  background: #09110c;
+  border: 1px solid #31583b;
+  border-radius: 6px;
+}
+
+.reference strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 22px;
+  color: #2aff72;
+  letter-spacing: 2px;
+}
+
+a.button {
+  display: block;
+  padding: 15px;
+  margin-top: 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.primary {
+  background: #2aff72;
+  color: #000;
+}
+
+.secondary {
+  border: 1px solid #2aff72;
+  color: #2aff72;
+}
+
+.notice {
+  font-size: 13px;
+  margin-top: 25px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="brand">BLACKVEIL BIOLOGICS</div>
+</header>
+
+<main>
+  <div class="card">
+
+    <div class="symbol">◇</div>
+
+    <h1>ORDER REQUEST DETAILS</h1>
+
+    <p>
+      Thank you for your interest in
+      Blackveil Biologics.
+    </p>
+
+    <div class="reference">
+      ORDER REFERENCE
+      <strong id="orderNumber">NOT AVAILABLE</strong>
+    </div>
+
+    <p>
+      Your order request is not confirmed
+      until your email has been sent and
+      received by our team.
+    </p>
+
+    <p>
+      Requests are subject to review
+      and availability. Do not send payment
+      until you receive confirmation.
+    </p>
+
+    <a class="button primary"
+       href="index.html">
+      RETURN TO CATALOG
+    </a>
+
+    <a class="button secondary"
+       href="mailto:blackveilbio@gmail.com?subject=Order%20Request%20Support">
+      CONTACT SUPPORT
+    </a>
+
+    <p class="notice">
+      Laboratory research use only.
+      Not for human consumption.
+    </p>
+
+  </div>
+</main>
+
+<script>
+(function () {
+  try {
+    const saved = JSON.parse(
+      sessionStorage.getItem(
+        "blackveilCurrentOrder"
+      ) || "null"
+    );
+
+    let reference = "";
+
+    if (typeof saved === "string") {
+      reference = saved;
+    } else if (saved && typeof saved === "object") {
+      reference =
+        saved.orderNumber ||
+        saved.reference ||
+        saved.orderId ||
+        "";
+    }
+
+    if (/^BV-\d{6}$/.test(reference)) {
+      document.getElementById(
+        "orderNumber"
+      ).textContent = reference;
+    }
+  } catch (e) {}
+})();
+</script>
+
+</body>
+</html>
