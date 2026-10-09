@@ -690,5 +690,124 @@ row.querySelector(".qty-minus").addEventListener("click", function () {
 });
   
 </script>
+    
+<!-- BLACKVEIL AGE VERIFICATION -->
+<style>
+#ageGate {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.96);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.ageBox {
+  background: #101713;
+  border: 1px solid #2aff72;
+  border-radius: 12px;
+  padding: 30px 22px;
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+  color: white;
+  box-shadow: 0 0 35px #123b20;
+}
+.ageBox h2 {
+  color: #2aff72;
+  letter-spacing: 2px;
+}
+.ageBox p {
+  line-height: 1.6;
+  color: #ccc;
+}
+.ageBox button {
+  width: 100%;
+  padding: 15px;
+  margin-top: 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+#ageYes {
+  background: #2aff72;
+  color: #000;
+  border: none;
+}
+#ageNo {
+  background: transparent;
+  color: #ff7777;
+  border: 1px solid #ff7777;
+}
+</style>
+
+<div id="ageGate" hidden>
+  <div class="ageBox">
+    <h2>BLACKVEIL BIOLOGICS</h2>
+    <h3>AGE VERIFICATION</h3>
+    <p>
+      You must be 21 years of age or older
+      to enter this website.
+    </p>
+    <p>
+      Products are intended for legitimate
+      laboratory research only.
+      Not for human consumption.
+    </p>
+    <button id="ageYes" type="button">
+      I AM 21 OR OLDER — ENTER
+    </button>
+    <button id="ageNo" type="button">
+      I AM UNDER 21 — EXIT
+    </button>
+  </div>
+</div>
+
+<script>
+(function () {
+  const gate = document.getElementById("ageGate");
+  const storageKey = "blackveilAgeVerified";
+  const duration = 30 * 24 * 60 * 60 * 1000;
+
+  let verifiedUntil = 0;
+
+  try {
+    verifiedUntil = Number(
+      localStorage.getItem(storageKey)
+    ) || 0;
+  } catch (e) {}
+
+  if (Date.now() < verifiedUntil) {
+    gate.remove();
+    return;
+  }
+
+  gate.hidden = false;
+  gate.style.display = "flex";
+  document.body.style.overflow = "hidden";
+
+  document.getElementById("ageYes")
+    .addEventListener("click", function () {
+      try {
+        localStorage.setItem(
+          storageKey,
+          String(Date.now() + duration)
+        );
+      } catch (e) {}
+
+      gate.remove();
+      document.body.style.overflow = "";
+    });
+
+  document.getElementById("ageNo")
+    .addEventListener("click", function () {
+      window.location.replace(
+        "https://www.google.com/"
+      );
+    });
+})();
+</script>
+<!-- END AGE VERIFICATION -->
 </body>
 </html>
