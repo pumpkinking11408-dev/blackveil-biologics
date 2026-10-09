@@ -155,33 +155,18 @@ a.button {
   </div>
 </main>
 
+
 <script>
 (function () {
-  try {
-    const saved = JSON.parse(
-      sessionStorage.getItem(
-        "blackveilCurrentOrder"
-      ) || "null"
-    );
+  const reference = sessionStorage.getItem(
+    "blackveilCompletedOrderReference"
+  );
 
-    let reference = "";
-
-    if (typeof saved === "string") {
-      reference = saved;
-    } else if (saved && typeof saved === "object") {
-      reference =
-        saved.orderNumber ||
-        saved.reference ||
-        saved.orderId ||
-        "";
-    }
-
-    if (/^BV-\d{6}$/.test(reference)) {
-      document.getElementById(
-        "orderNumber"
-      ).textContent = reference;
-    }
-  } catch (e) {}
+  if (reference && /^BV-\d{6}$/.test(reference)) {
+    document.getElementById(
+      "orderNumber"
+    ).textContent = reference;
+  }
 })();
 </script>
 
