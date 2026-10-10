@@ -753,6 +753,17 @@ alert(
   "Please SEND the email to submit your request.\n\n" +
   "Your order is not confirmed until reviewed."
 );
+    
+if (sessionStorage.getItem("blackveilEmailOpened") === "yes") {
+  const openAgain = confirm(
+    "An order email draft has already been opened.\n\n" +
+    "Do you want to open another draft?"
+  );
+
+  if (!openAgain) return;
+}
+
+sessionStorage.setItem("blackveilEmailOpened", "yes");
     window.location.href =
       "mailto:blackveilbio@gmail.com?subject=" +
       encodeURIComponent(subject) +
