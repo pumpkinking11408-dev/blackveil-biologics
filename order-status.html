@@ -1,0 +1,190 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1">
+
+<title>Order Status | Blackveil Biologics</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #080d0a;
+  color: #e5eee8;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  padding: 28px 15px;
+  text-align: center;
+  border-bottom: 1px solid #25442d;
+}
+
+.brand {
+  color: #2aff72;
+  font-weight: bold;
+  letter-spacing: 3px;
+  font-size: 20px;
+}
+
+main {
+  max-width: 520px;
+  margin: 50px auto;
+  padding: 20px;
+}
+
+.card {
+  background: #101813;
+  border: 1px solid #2aff72;
+  border-radius: 12px;
+  padding: 28px 22px;
+  text-align: center;
+}
+
+h1 {
+  color: #2aff72;
+  font-size: 25px;
+}
+
+p {
+  color: #c5d1c8;
+  line-height: 1.7;
+}
+
+label {
+  display: block;
+  margin: 25px 0 10px;
+  text-align: left;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 15px;
+  background: #080d0a;
+  color: white;
+  border: 1px solid #365c40;
+  border-radius: 6px;
+  font-size: 17px;
+}
+
+button, .button {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button {
+  background: #2aff72;
+  color: black;
+}
+
+.button {
+  border: 1px solid #2aff72;
+  color: #2aff72;
+}
+
+.notice {
+  margin-top: 22px;
+  font-size: 13px;
+  color: #a9b8ad;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="brand">
+    BLACKVEIL BIOLOGICS
+  </div>
+</header>
+
+<main>
+  <div class="card">
+
+    <h1>ORDER STATUS</h1>
+
+    <p>
+      Enter your order reference number
+      to request an update from our team.
+    </p>
+
+    <form id="statusForm">
+      <label for="orderRef">
+        ORDER REFERENCE
+      </label>
+
+      <input
+        id="orderRef"
+        type="text"
+        placeholder="BV-123456"
+        maxlength="9"
+        required
+      >
+
+      <button type="submit">
+        REQUEST ORDER UPDATE →
+      </button>
+    </form>
+
+    <a class="button" href="index.html">
+      RETURN TO CATALOG
+    </a>
+
+    <p class="notice">
+      Order updates are handled manually.
+      Entering a reference does not verify
+      that an order was received or approved.
+    </p>
+
+  </div>
+</main>
+
+<script>
+document.getElementById("statusForm")
+  .addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const reference = document
+      .getElementById("orderRef")
+      .value.trim().toUpperCase();
+
+    if (!/^BV-\d{6}$/.test(reference)) {
+      alert(
+        "Please enter a valid order reference, " +
+        "such as BV-123456."
+      );
+      return;
+    }
+
+    const subject =
+      "BLACKVEIL ORDER STATUS // " + reference;
+
+    const body =
+      "Hello Blackveil Biologics,\n\n" +
+      "I would like an update on my order.\n\n" +
+      "Order Reference: " + reference + "\n\n" +
+      "Thank you.";
+
+    window.location.href =
+      "mailto:blackveilbio@gmail.com?subject=" +
+      encodeURIComponent(subject) +
+      "&body=" +
+      encodeURIComponent(body);
+  });
+</script>
+
+</body>
+</html>
